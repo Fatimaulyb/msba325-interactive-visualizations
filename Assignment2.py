@@ -43,6 +43,8 @@ st.plotly_chart(px.bar(top_companies_in_industry,
                        title=f"Top 10 Companies in {selected_industry} by Revenue",
                        orientation='h'))
 
+st.write("Here is a dropdown menu where users can select an industry and view the top 10 companies in that industry by revenue in a horizontal bar plot")
+
 # Interaction 2: Distribution of Employees by Headquarters
 st.header('Distribution of Employees by Headquarters')
 selected_headquarters = st.multiselect("Select Headquarters", largest_companies["Headquarters"].unique())
@@ -54,3 +56,4 @@ st.plotly_chart(px.histogram(filtered_by_headquarters,
                              color='Headquarters',
                              title='Distribution of Employees by Headquarters',
                              nbins=30))
+st.write("And here is a multiselect box where users can select multiple company headquarters and view the distribution of employees for companies headquartered in the selected locations. If no headquarters are selected, the histogram will show distributions for all headquarters.")
