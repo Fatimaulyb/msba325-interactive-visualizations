@@ -24,6 +24,9 @@ top_10_revenue = largest_companies.sort_values(by='Revenue (USD millions)', asce
 # Visualization 4: Barplot of Distribution of Revenue Growth
 st.header('Distribution of Revenue Growth')
 st.plotly_chart(px.box(largest_companies, y='Revenue growth', title='Distribution of Revenue Growth'))
+# Sidebar for filtering
+st.sidebar.header("Filter Data")
+selected_companies = st.sidebar.multiselect("Select Companies", largest_companies['name'].unique())
 
 st.write("The boxplot illustrating the distribution of revenue growth holds a pivotal role in financial analysis and strategic decision-making. Its importance stems from its ability to provide a concise yet comprehensive overview of key characteristics within the revenue growth dataset. By presenting statistics such as the median (indicating the typical growth rate), quartiles (depicting the spread of data), and potential outliers (highlighting extreme values), the boxplot simplifies complex financial data. This simplification is invaluable for stakeholders and decision-makers, as it allows for quick and accurate data interpretation.")
 
