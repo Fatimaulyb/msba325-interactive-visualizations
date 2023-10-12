@@ -63,6 +63,9 @@ st.markdown(
 # Visualization 5: Treemap of Revenue Distribution by Industry
 st.header('Revenue Distribution by Industry (Treemap)')
 
+# Clear widget state to prevent DuplicateWidgetID error
+st.experimental_rerun()
+
 # Sidebar for filtering by industry
 selected_industry = st.selectbox("Select Industry", ["All Industries"] + list(largest_companies['Industry'].unique()))
 
@@ -85,6 +88,7 @@ st.markdown(
     </div>""",
     unsafe_allow_html=True
 )
+
 
 
 # Interaction 1: Dropdown Selection for Industries with a Bar Plot
