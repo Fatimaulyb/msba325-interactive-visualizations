@@ -86,7 +86,13 @@ st.plotly_chart(px.bar(top_companies_in_industry,
                        title=f"Top 10 Companies in {selected_industry} by Revenue",
                        orientation='h'))
 
-st.write("This interactive bar plot is a powerful tool for exploring and comparing the top companies within various industries. With a user-friendly dropdown menu, users can select specific industries and instantly view the top companies that lead in each sector. The bar plot displays the companies as horizontal bars, with the length of each bar representing the company's relative performance within its respective industry. By selecting an industry from the dropdown menu, users can quickly identify the dominant players in that sector. This feature simplifies the process of tracking and comparing top performers, making it a valuable resource for investors, analysts, and decision-makers. The ability to toggle between industries provides a dynamic view of how different companies excel in their respective markets. This not only helps in identifying industry leaders but also supports informed decision-making, whether it's for investment opportunities, market analysis, or strategic partnerships.")
+st.markdown(
+    """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+    <p style="font-size:16px;color:#0d4f6c;">Explore revenue distribution by industry using this treemap.</p>
+    <p style="font-size:16px;">This interactive bar plot is a powerful tool for exploring and comparing the top companies within various industries. With a user-friendly dropdown menu, users can select specific industries and instantly view the top companies that lead in each sector. The bar plot displays the companies as horizontal bars, with the length of each bar representing the company's relative performance within its respective industry. By selecting an industry from the dropdown menu, users can quickly identify the dominant players in that sector. This feature simplifies the process of tracking and comparing top performers, making it a valuable resource for investors, analysts, and decision-makers. The ability to toggle between industries provides a dynamic view of how different companies excel in their respective markets. This not only helps in identifying industry leaders but also supports informed decision-making, whether it's for investment opportunities, market analysis, or strategic partnerships.</p>
+    </div>""",
+    unsafe_allow_html=True
+)
 
 
 
@@ -101,7 +107,13 @@ st.plotly_chart(px.histogram(filtered_by_headquarters,
                              color='Headquarters',
                              title='Distribution of Employees by Headquarters',
                              nbins=30))
-st.write("This interactive visualization introduces a multiselect box, allowing users to choose multiple company headquarters. It empowers users to explore the distribution of employees for companies headquartered in the selected locations. Notably, if no headquarters are chosen, the histogram will display the employee distributions for all headquarters. The importance of this tool lies in its ability to provide a tailored perspective on employee distribution, considering the geographic locations of company headquarters. By selecting specific headquarters, users can gain valuable insights into how employee numbers are spread across different regions or cities.")
+st.markdown(
+    """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+    <p style="font-size:16px;color:#0d4f6c;">Explore the distribution of revenue growth with this boxplot while harnessing the power of filters.</p>
+    <p style="font-size:16px;">This interactive visualization introduces a multiselect box, allowing users to choose multiple company headquarters. It empowers users to explore the distribution of employees for companies headquartered in the selected locations. Notably, if no headquarters are chosen, the histogram will display the employee distributions for all headquarters. The importance of this tool lies in its ability to provide a tailored perspective on employee distribution, considering the geographic locations of company headquarters. By selecting specific headquarters, users can gain valuable insights into how employee numbers are spread across different regions or cities.</p>
+    </div>""",
+    unsafe_allow_html=True
+)
 
 # Title and description
 st.title('Scatter Plot Matrix with Tooltips')
@@ -115,4 +127,10 @@ fig = px.scatter_matrix(largest_companies,
 
 st.plotly_chart(fig)
 
-st.write("The figure is a scatter plot matrix that visually displays relationships between key variables, such as Revenue (USD millions), Revenue growth, and Employees, in the dataset. Each point in the scatter plot matrix represents a company, and the points are color-coded by the industry to provide insights into the distribution and potential correlations between these variables. Users can interact with the plot by hovering over data points to see tooltips with additional information about each company.")
+st.markdown(
+    """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+    <p style="font-size:16px;color:#0d4f6c;">Explore the distribution of revenue growth with this boxplot while harnessing the power of filters.</p>
+    <p style="font-size:16px;">The figure is a scatter plot matrix that visually displays relationships between key variables, such as Revenue (USD millions), Revenue growth, and Employees, in the dataset. Each point in the scatter plot matrix represents a company, and the points are color-coded by the industry to provide insights into the distribution and potential correlations between these variables. Users can interact with the plot by hovering over data points to see tooltips with additional information about each company.</p>
+    </div>""",
+    unsafe_allow_html=True
+)
