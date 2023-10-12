@@ -6,7 +6,15 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Create a Streamlit app title
-st.title('Largest Companies Visualization')
+title_text = "Largest Companies Visualization"
+st.title(title_text)
+
+# Introduce a simple animation
+for _ in range(3):
+    title_text += "."
+    st.title(title_text)
+    time.sleep(0.5)
+
 
 # Load the dataset (assuming 'Largest_Companies.csv' is in your Colab environment)
 largest_companies = pd.read_csv('Largest_Companies.csv')
