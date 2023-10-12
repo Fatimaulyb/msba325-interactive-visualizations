@@ -24,6 +24,7 @@ largest_companies['Revenue (USD millions)'] = largest_companies['Revenue (USD mi
 # Creating a Mini Dataframe for visualizations
 top_10_revenue = largest_companies.sort_values(by='Revenue (USD millions)', ascending=False).head(10)
 
+
 # Visualization 4: Boxplot of Revenue Growth Distribution
 st.header('Boxplot of Revenue Growth Distribution')
 
@@ -42,18 +43,19 @@ selected_companies = st.sidebar.multiselect("Select Companies", filtered_data['N
 
 # Apply filtering by company
 if selected_companies:
-    filtered_data = filtered_data[filtered_data['Name'].isin(selected_companies)]
+    filtered_data = filtered_data[filtered_data['Name'].isin selected_companies]
 
 st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth Distribution ({selected_industry})'))
 
-# Description
+# Description with the box
 st.markdown(
-    f"""<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
-    <p style="font-size:16px;color:#0d4f6c;">Navigate the world of financial insights with the 'Revenue Growth Distribution' boxplot, thoughtfully tailored by your filters.</p>
-    <p style="font-size:16px;">By handpicking an industry or specific companies, your journey becomes more refined. The boxplot reveals the intricacies of revenue growth, unveiling the median, the heart of typical growth. The quartiles, guardians of data spread, guide you through financial terrain, while the potential outliers, like hidden gems, offer glimpses of remarkable success or challenges. Your filters are your companions in this voyage, providing you with a customized view of financial data. It's your compass to unravel the complexities of revenue growth.</p>
+    """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+    <p style="font-size:16px;color:#0d4f6c;">Explore the distribution of revenue growth with this boxplot while harnessing the power of filters.</p>
+    <p style="font-size:16px;">Select an industry or specific companies using the filters to customize your analysis. The boxplot unveils typical growth, data spread, and potential outliers, allowing you to uncover financial insights tailored to your preferences.</p>
     </div>""",
     unsafe_allow_html=True
 )
+
 
 
 
