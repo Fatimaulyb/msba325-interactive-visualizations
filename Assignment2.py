@@ -25,7 +25,6 @@ largest_companies['Revenue (USD millions)'] = largest_companies['Revenue (USD mi
 top_10_revenue = largest_companies.sort_values(by='Revenue (USD millions)', ascending=False).head(10)
 
 # Visualization 4: Boxplot of Revenue Growth Distribution
-# Visualization 4: Boxplot of Revenue Growth Distribution
 st.header('Boxplot of Revenue Growth Distribution')
 
 # Sidebar for filtering by industry
@@ -37,11 +36,15 @@ if selected_industry == "All Industries":
 else:
     filtered_data = largest_companies[largest_companies['Industry'] == selected_industry]
 
-st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth Distribution ({selected_industry})'))
-
-# Sidebar for filtering
+# Sidebar for filtering by company
 st.sidebar.header("Filter Data")
 selected_companies = st.sidebar.multiselect("Select Companies", filtered_data['Name'].unique())
+
+# Apply filtering by company
+if selected_companies:
+    filtered_data = filtered_data[filtered_data['Name'].isin(selected_companies)]
+
+st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth Distribution ({selected_industry})'))
 
 # Description
 st.markdown(
