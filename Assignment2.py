@@ -62,12 +62,30 @@ st.markdown(
 
 # Visualization 5: Treemap of Revenue Distribution by Industry
 st.header('Revenue Distribution by Industry (Treemap)')
-st.plotly_chart(px.treemap(largest_companies,
+
+# Sidebar for filtering by industry
+selected_industry = st.selectbox("Select Industry", ["All Industries"] + list(largest_companies['Industry'].unique()))
+
+# Filter the data based on the selected industry
+if selected_industry == "All Industries":
+    filtered_data = largest_companies
+else:
+    filtered_data = largest_companies[largest_companies['Industry'] == selected_industry]
+
+st.plotly_chart(px.treemap(filtered_data,
                            path=['Industry', 'Name'],
                            values='Revenue (USD millions)',
-                           title='Revenue Distribution by Industry (Treemap)'))
+                           title=f'Revenue Distribution by Industry ({selected_industry})'))
 
-st.write("This treemap provides an insightful representation of revenue distribution by industry, offering a comprehensive view of how revenue is allocated across various sectors. In this visualization, each rectangle represents an industry, with the size of the rectangle corresponding to the industry's revenue proportion. The color-coding of the rectangles enhances the visual impact, making it easier to distinguish between different sectors.The treemap allows viewers to quickly identify the largest and smallest revenue contributors within the dataset, making it a powerful tool for assessing the relative significance of different industries to the overall revenue picture. Moreover, the hierarchical structure of the treemap can reveal subcategories within industries, providing even finer granularity in revenue analysis.")
+# Description with the box
+st.markdown(
+    """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+    <p style="font-size:16px;color:#0d4f6c;">Explore revenue distribution by industry using this interactive treemap.</p>
+    <p style="font-size:16px;">Select an industry from the dropdown to focus on specific sectors. Each rectangle in the treemap represents an industry, and its size corresponds to the revenue proportion. Color-coding enhances visual impact and distinguishes between sectors. This tool helps identify the largest and smallest revenue contributors and assess the relative significance of industries. Explore hierarchical structures for finer granularity in revenue analysis.</p>
+    </div>""",
+    unsafe_allow_html=True
+)
+
 
 # Interaction 1: Dropdown Selection for Industries with a Bar Plot
 st.header('Top 10 Companies by Revenue in Selected Industry')
