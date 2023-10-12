@@ -67,18 +67,22 @@ st.plotly_chart(px.histogram(filtered_by_headquarters,
                              nbins=30))
 st.write("This interactive visualization introduces a multiselect box, allowing users to choose multiple company headquarters. It empowers users to explore the distribution of employees for companies headquartered in the selected locations. Notably, if no headquarters are chosen, the histogram will display the employee distributions for all headquarters. The importance of this tool lies in its ability to provide a tailored perspective on employee distribution, considering the geographic locations of company headquarters. By selecting specific headquarters, users can gain valuable insights into how employee numbers are spread across different regions or cities.")
 
-st.title('Interactive Bar Chart: Industry Comparison')
-st.write("Select an industry to see revenue and employee count for companies in that industry.")
+# Title and description
+st.title('Scatter Plot Matrix with Tooltips')
+st.write("Explore relationships between variables with interactive tooltips.")
 
-# Sidebar for selecting an industry
-selected_industry = st.selectbox("Select Industry", largest_companies['Industry'].unique())
-
-# Filter data based on the selected industry
-filtered_data = largest_companies[largest_companies['Industry'] == selected_industry]
-
-# Create an interactive bar chart
-fig = px.bar(filtered_data, x="Name", y=["Revenue (USD millions)", "Employees"],
-             title=f"Industry Comparison: {selected_industry}",
-             labels={"Name": "Company", "value": "Amount"})
+# Create an interactive scatter plot matrix
+fig = px.scatter_matrix(largest_companies,
+                        dimensions=["Revenue (USD millions)", "Revenue growth", "Employees"],
+                        color="Industry",
+                        title="Scatter Plot Matrix")
 
 st.plotly_chart(fig)
+
+
+
+
+
+
+
+
