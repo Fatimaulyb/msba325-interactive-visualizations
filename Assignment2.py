@@ -118,6 +118,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
 # Title and description
 st.title('Scatter Plot Matrix with Tooltips')
 st.write("Explore relationships between variables with interactive tooltips.")
