@@ -66,3 +66,14 @@ st.plotly_chart(px.histogram(filtered_by_headquarters,
                              title='Distribution of Employees by Headquarters',
                              nbins=30))
 st.write("This interactive visualization introduces a multiselect box, allowing users to choose multiple company headquarters. It empowers users to explore the distribution of employees for companies headquartered in the selected locations. Notably, if no headquarters are chosen, the histogram will display the employee distributions for all headquarters. The importance of this tool lies in its ability to provide a tailored perspective on employee distribution, considering the geographic locations of company headquarters. By selecting specific headquarters, users can gain valuable insights into how employee numbers are spread across different regions or cities.")
+
+# Title and description
+st.title('Interactive Scatter Plot: Revenue vs. Revenue Growth')
+st.write("Explore the relationship between Revenue and Revenue Growth for the largest companies.")
+
+# Create an interactive scatter plot
+fig = px.scatter(largest_companies, x="Revenue (USD millions)", y="Revenue growth",
+                 hover_name="Name", text="Name",
+                 title="Revenue vs. Revenue Growth",
+                 labels={"Revenue (USD millions)": "Revenue (Millions)", "Revenue growth": "Revenue Growth (%)"},
+                 )
