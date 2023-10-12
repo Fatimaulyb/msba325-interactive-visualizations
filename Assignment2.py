@@ -25,26 +25,33 @@ largest_companies['Revenue (USD millions)'] = largest_companies['Revenue (USD mi
 top_10_revenue = largest_companies.sort_values(by='Revenue (USD millions)', ascending=False).head(10)
 
 # Visualization 4: Boxplot of Revenue Growth Distribution
+# Visualization 4: Boxplot of Revenue Growth Distribution
 st.header('Boxplot of Revenue Growth Distribution')
-st.plotly_chart(px.box(largest_companies, y='Revenue growth', title='Revenue Growth Distribution'))
+
+# Sidebar for filtering by industry
+selected_industry = st.selectbox("Select Industry", ["All Industries"] + list(largest_companies['Industry'].unique()))
+
+# Filter the data based on the selected industry
+if selected_industry == "All Industries":
+    filtered_data = largest_companies
+else:
+    filtered_data = largest_companies[largest_companies['Industry'] == selected_industry]
+
+st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth Distribution ({selected_industry})'))
 
 # Sidebar for filtering
 st.sidebar.header("Filter Data")
-selected_companies = st.sidebar.multiselect("Select Companies", largest_companies['Name'].unique())
+selected_companies = st.sidebar.multiselect("Select Companies", filtered_data['Name'].unique())
 
-# Create an expandable section for the description
-if st.button("Learn More"):
-    st.write("Delve into the world of financial insights with the 'Revenue Growth Distribution' boxplot. This visualization is far from nonsense; it's your compass in the financial wilderness.")
-    st.write("The boxplot is a powerful tool in financial analysis, offering a quick yet comprehensive view of revenue growth data. It reveals the median, indicating typical growth, quartiles, showing data spread, and potential outliers, highlighting exceptional cases. Simplifying complex financial figures, it's invaluable for stakeholders and decision-makers, providing quick, accurate insights.")
-
-
-# Present the description in a highlighted box
+# Description
 st.markdown(
-    """<div style="background-color:#f7f7f7;padding:10px;border-radius:10px">
-    <p style="font-size:18px;">The boxplot illustrating the distribution of revenue growth holds a pivotal role in financial analysis and strategic decision-making. Its importance stems from its ability to provide a concise yet comprehensive overview of key characteristics within the revenue growth dataset. By presenting statistics such as the median (indicating the typical growth rate), quartiles (depicting the spread of data), and potential outliers (highlighting extreme values), the boxplot simplifies complex financial data. This simplification is invaluable for stakeholders and decision-makers, as it allows for quick and accurate data interpretation.</p>
+    f"""<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+    <p style="font-size:16px;color:#0d4f6c;">Delve into the world of financial insights with the 'Revenue Growth Distribution' boxplot for {selected_industry}.</p>
+    <p style="font-size:16px;">The boxplot is a powerful tool in financial analysis, offering a quick yet comprehensive view of revenue growth data. It reveals the median, indicating typical growth, quartiles, showing data spread, and potential outliers, highlighting exceptional cases. Simplifying complex financial figures, it's invaluable for stakeholders and decision-makers, providing quick, accurate insights.</p>
     </div>""",
     unsafe_allow_html=True
 )
+
 
 
 # Visualization 5: Treemap of Revenue Distribution by Industry
