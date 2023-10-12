@@ -77,3 +77,9 @@ fig = px.scatter(largest_companies, x="Revenue (USD millions)", y="Revenue growt
                  title="Revenue vs. Revenue Growth",
                  labels={"Revenue (USD millions)": "Revenue (Millions)", "Revenue growth": "Revenue Growth (%)"},
                  )
+
+# Customize the figure layout
+fig.update_traces(textposition='top center', textfont_size=10)
+fig.update_layout(hovermode='closest')
+
+st.plotly_chart(fig)
