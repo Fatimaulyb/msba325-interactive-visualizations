@@ -129,8 +129,9 @@ st.plotly_chart(fig)
 
 st.markdown(
     """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
-    <h2 style="color:#0d4f6c;">Scatter Plot Matrix</h2>
-    <p style="font-size:16px;">The figure is a scatter plot matrix that visually displays relationships between key variables, such as Revenue (USD millions), Revenue growth, and Employees, in the dataset. Each point in the scatter plot matrix represents a company, and the points are color-coded by the industry to provide insights into the distribution and potential correlations between these variables. Users can interact with the plot by hovering over data points to see tooltips with additional information about each company.</p>
+    <p style="font-size:16px;color:#0d4f6c;">Explore relationships between variables with this interactive Scatter Plot Matrix.</p>
+    <p style="font-size:16px;">The figure visually displays relationships between key variables, such as Revenue (USD millions), Revenue growth, and Employees, in the dataset. Each point in the scatter plot matrix represents a company, and the points are color-coded by the industry to provide insights into the distribution and potential correlations between these variables. Users can interact with the plot by hovering over data points to see tooltips with additional information about each company.</p>
     </div>""",
     unsafe_allow_html=True
 )
+
