@@ -88,11 +88,12 @@ st.plotly_chart(px.bar(top_companies_in_industry,
 
 st.markdown(
     """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
-    <p style="font-size:16px;color:#0d4f6c;">This interactive bar plot is a powerful tool for exploring and comparing the top companies within various industries.</p>
+    <p style="font-size:16px;color:#0d4f6c;">Explore top companies across industries with this interactive bar plot.</p>
     <p style="font-size:16px;">With a user-friendly dropdown menu, users can select specific industries and instantly view the top companies that lead in each sector. The bar plot displays the companies as horizontal bars, with the length of each bar representing the company's relative performance within its respective industry. By selecting an industry from the dropdown menu, users can quickly identify the dominant players in that sector. This feature simplifies the process of tracking and comparing top performers, making it a valuable resource for investors, analysts, and decision-makers. The ability to toggle between industries provides a dynamic view of how different companies excel in their respective markets. This not only helps in identifying industry leaders but also supports informed decision-making, whether it's for investment opportunities, market analysis, or strategic partnerships.</p>
     </div>""",
     unsafe_allow_html=True
 )
+
 
 
 
