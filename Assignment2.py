@@ -43,7 +43,7 @@ selected_companies = st.sidebar.multiselect("Select Companies", filtered_data['N
 
 # Apply filtering by company
 if selected_companies:
-    filtered_data = filtered_data[filtered_data['Name'].isin selected_companies]
+    filtered_data = filtered_data[filtered_data['Name'].isin(selected_companies)]
 
 st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth Distribution ({selected_industry})'))
 
@@ -55,6 +55,7 @@ st.markdown(
     </div>""",
     unsafe_allow_html=True
 )
+
 
 
 
