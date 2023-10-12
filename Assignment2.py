@@ -49,8 +49,8 @@ st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth
 # Description
 st.markdown(
     f"""<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
-    <p style="font-size:16px;color:#0d4f6c;">Delve into the world of financial insights with the 'Revenue Growth Distribution' boxplot for {selected_industry}.</p>
-    <p style="font-size:16px;">The boxplot is a powerful tool in financial analysis, offering a quick yet comprehensive view of revenue growth data. It reveals the median, indicating typical growth, quartiles, showing data spread, and potential outliers, highlighting exceptional cases. Simplifying complex financial figures, it's invaluable for stakeholders and decision-makers, providing quick, accurate insights.</p>
+    <p style="font-size:16px;color:#0d4f6c;">Navigate the world of financial insights with the 'Revenue Growth Distribution' boxplot, thoughtfully tailored by your filters.</p>
+    <p style="font-size:16px;">By handpicking an industry or specific companies, your journey becomes more refined. The boxplot reveals the intricacies of revenue growth, unveiling the median, the heart of typical growth. The quartiles, guardians of data spread, guide you through financial terrain, while the potential outliers, like hidden gems, offer glimpses of remarkable success or challenges. Your filters are your companions in this voyage, providing you with a customized view of financial data. It's your compass to unravel the complexities of revenue growth.</p>
     </div>""",
     unsafe_allow_html=True
 )
