@@ -24,9 +24,24 @@ largest_companies['Revenue (USD millions)'] = largest_companies['Revenue (USD mi
 # Creating a Mini Dataframe for visualizations
 top_10_revenue = largest_companies.sort_values(by='Revenue (USD millions)', ascending=False).head(10)
 
-# Visualization 4: Barplot of Distribution of Revenue Growth
-st.header('Distribution of Revenue Growth')
-st.plotly_chart(px.box(largest_companies, y='Revenue growth', title='Distribution of Revenue Growth'))
+# Visualization 4: Boxplot of Revenue Growth Distribution
+st.header('Boxplot of Revenue Growth Distribution')
+st.plotly_chart(px.box(largest_companies, y='Revenue growth', title='Revenue Growth Distribution'))
+
+# Sidebar for filtering
+st.sidebar.header("Filter Data")
+selected_companies = st.sidebar.multiselect("Select Companies", largest_companies['Name'].unique())
+
+# Create an expandable section for the description
+if st.button("Learn More"):
+    st.markdown(
+        """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
+        <p style="font-size:16px;color:#0d4f6c;">Delve into the world of financial insights with the 'Revenue Growth Distribution' boxplot. This visualization is far from nonsense; it's your compass in the financial wilderness.</p>
+        <p style="font-size:16px;">The boxplot is a powerful tool in financial analysis, offering a quick yet comprehensive view of revenue growth data. It reveals the median, indicating typical growth, quartiles, showing data spread, and potential outliers, highlighting exceptional cases. Simplifying complex financial figures, it's invaluable for stakeholders and decision-makers, providing quick, accurate insights.</p>
+        <p style="font-size:16px;">Click 'Learn More' again to collapse this section.</p>
+        </div>""",
+        unsafe_allow_html=True
+    )
 
 
 # Present the description in a highlighted box
