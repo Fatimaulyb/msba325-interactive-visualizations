@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 
 # Create a Streamlit app title
 st.title('Largest Companies Visualization')
+st.markdown("---")
 
 # Load the dataset (assuming 'Largest_Companies.csv' is in your Colab environment)
 largest_companies = pd.read_csv('Largest_Companies.csv')
