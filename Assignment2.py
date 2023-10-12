@@ -79,6 +79,7 @@ fig = px.scatter_matrix(largest_companies,
 
 st.plotly_chart(fig)
 
+st.write("The figure is a scatter plot matrix that visually displays relationships between key variables, such as "Revenue (USD millions)," "Revenue growth," and "Employees," in the dataset. Each point in the scatter plot matrix represents a company, and the points are color-coded by the industry to provide insights into the distribution and potential correlations between these variables. Users can interact with the plot by hovering over data points to see tooltips with additional information about each company.")
 
 
 
