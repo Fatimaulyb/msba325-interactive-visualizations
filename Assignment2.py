@@ -51,10 +51,11 @@ st.plotly_chart(px.box(filtered_data, y='Revenue growth', title=f'Revenue Growth
 st.markdown(
     """<div style="background-color:#e8f7f7;padding:20px;border-radius:10px">
     <p style="font-size:16px;color:#0d4f6c;">Explore the distribution of revenue growth with this boxplot while harnessing the power of filters.</p>
-    <p style="font-size:16px;">Select an industry or specific companies using the filters to customize your analysis. The boxplot unveils typical growth, data spread, and potential outliers, allowing you to uncover financial insights tailored to your preferences.</p>
+    <p style="font-size:16px;">Select an industry or specific companies using the filters to customize your analysis. The boxplot unveils typical growth, data spread, and potential outliers, allowing users to uncover financial insights tailored to their preferences.</p>
     </div>""",
     unsafe_allow_html=True
 )
+
 
 
 
